@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TaskDone</title>
+</head>
+<body>
+
+    {% extends 'Application/main.html' %}
+
+    {% block content %}
+
+        <div class="task-done-header">
+            <h1>TaskDone</h1>
+        </div>
+        <br>
+        <div class="task-done-body">
+            <p>Create your to-do lists here!</p>
+            <br>
+            <br>
+            <a class="register" href="{% url 'register' %}">Sign Up</a>
+            <a class="login" href="{% url 'login' %}">Sign In</a>
+        </div>
+    {% endblock content %}
+</body>
+</html>

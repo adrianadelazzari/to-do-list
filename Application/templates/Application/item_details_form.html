@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Item Details | TaskDone</title>
+</head>
+<body>
+
+    {% extends 'Application/main.html' %}
+
+    {% block content %}
+
+        <div class="header">
+            <a href="{% url 'to-do-list' %}">&#8592; Go back</a>
+        </div>
+
+        <div class="item-details">
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="button" value="Save">
+                {% if todo_list.id %}
+                    <a href="{% url 'item-delete' todo_list.id %}">
+                    <input type="button" class="button" value="Delete">
+                    </a>
+                {% endif %}
+            </form>
+        </div>
+    {% endblock content %}
+</body>
+</html>

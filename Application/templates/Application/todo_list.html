@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To-do List | TaskDone</title>
+</head>
+<body>
+    {% extends 'Application/main.html' %}
+
+    {% block content %}
+
+        {% if request.user.is_authenticated %}
+{#            <p>{{ request.user }}</p>#}
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        <hr>
+        <div class="header">
+            <div>
+                <h1>Hello, {{ request.user|title }}</h1>
+                <h3>Your to-do list:</h3>
+            </div>
+        </div>
+        <div class="search">
+            <form method="get">
+                <input type="text" name="search-area" value="{{ search_input }}">
+                <input type="submit" class="button" value="Search">
+            </form>
+        </div>
+        <br>
+        <div class="list-items">
+            {% for item in todo_list %}
+                <div class="item">
+                    {% if item.complete %}
+                        <div class="item-title">
+                            <div class="item-complete-icon"></div>
+                                <s><a href="{% url 'item-update' item.id %}">{{ item }}</a></s>
+                        </div>
+                        <a class="item-delete" href="{% url 'item-delete' item.id %}">&#215;</a>
+                    {% else %}
+                        <div class="item-title">
+                            <div class="item-incomplete-icon"></div>
+                                <a href="{% url 'item-update' item.id %}">{{ item }}</a>
+                        </div>
+                        <a class="item-delete" href="{% url 'item-delete' item.id %}">&#215;</a>
+                    {% endif %}
+                </div>
+            {%  empty %}
+                    <h3>No items found.</h3>
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+        <a class="item-add" href="{% url 'item-create' %}">New Item</a>
+    {% endblock content %}
+</body>
+</html>
+
+

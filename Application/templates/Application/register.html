@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register | TaskDone</title>
+</head>
+<body>
+
+    {% extends 'Application/main.html' %}
+
+    {% block content %}
+
+        <div class="register-header">
+            <h1>Register</h1>
+        </div>
+        <div class="register-body">
+            <form method="post">
+                {% csrf_token %}
+                <label>{{form.username.label}}</label>
+                {{form.username}}
+                <label>{{form.password1.label}}</label>
+                {{form.password1}}
+                <label>{{form.password2.label}}</label>
+                {{form.password2}}
+                <div class="register-button">
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+            <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
+        </div>
+    {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login | TaskDone</title>
+</head>
+<body>
+
+    {% extends 'Application/main.html' %}
+
+    {% block content %}
+
+        <div class="login-header">
+            <h1>Login</h1>
+        </div>
+        <div class="login-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="login-button">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+            <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+        </div>
+    {% endblock content %}
+</body>
+</html>

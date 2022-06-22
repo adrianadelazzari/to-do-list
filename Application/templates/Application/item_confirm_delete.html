@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Delete Item | TaskDone</title>
+</head>
+<body>
+    {% extends 'Application/main.html' %}
+
+    {% block content %}
+        <a href="{% url 'to-do-list' %}">&#8592; Go back</a>
+        <form method="post">
+            {% csrf_token %}
+            <h3>Are you sure you want to delete this item?</h3>
+            <p>{{ todo_list }}</p>
+            <input type="submit"  class="button" value="Yes">
+        </form>
+    {% endblock content %}
+</body>
+</html>

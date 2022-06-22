@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Main | TaskDone</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: #686868;
+            font-family: 'Quicksand', sans-serif;
+            padding-top: 50px;
+        }
+        a {
+            color: rebeccapurple;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .container{
+            max-width: 550px;
+            margin: auto;
+            padding: 30px;
+            background-color: lightgray;
+        }
+        .item{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #B3C4C7;
+            border-top: 1px solid #dfe4ea;
+            overflow: hidden;
+        }
+        .item-title{
+            display: flex;
+        }
+        .item-complete-icon{
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+        }
+        .item-complete-icon::before{
+            position: absolute;
+            left: 0;
+            top: 50%;
+            height: 50%;
+            width: 3px;
+            background-color: green;
+            content: "";
+            transform: translateX(10px) rotate(-45deg);
+            transform-origin: left bottom;
+        }
+        .item-complete-icon::after{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100%;
+            background-color: green;
+            content: "";
+            transform: translateX(10px) rotate(-45deg);
+            transform-origin: left bottom;
+        }
+        .item-incomplete-icon{
+            height: 20px;
+            width: 20px;
+            background-color: #8A8A8A;
+            margin-right: 5px;
+            margin-left: 5px;
+            border: 1px solid slategray;
+            border-radius: 50%;
+        }
+        .item-delete{
+            text-decoration: none;
+            font-weight: 500;
+            color: #fff;
+            font-size: 20px;
+            line-height: 10px;
+            margin: 5px;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            padding: 10px;
+            background: #AD2136;
+            text-align: center;
+        }
+        .item-add{
+            text-decoration: none;
+            font-weight: 900;
+            color: #282D2E;
+            font-size: 15px;
+            width: 20px;
+            height: 20px;
+            padding: 10px;
+            background: lightgray;
+            text-align: center;
+            border: 2px solid rebeccapurple;
+            border-radius: 5px;
+        }
+        .search{
+            display: flex;
+            margin-top: 20px;
+        }
+        input[type=text], input[type=password]{
+            border: 1px solid gray;
+            border-radius: 5px;
+            padding: 8px;
+            width: 65%;
+        }
+        .button {
+            background-color: lightgray;
+            text-decoration: none;
+            color: #282D2E;
+            font-size: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 900;
+            cursor: pointer;
+            border: 2px solid rebeccapurple;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        input[value="Register"], input[value="Login"]{
+            width: 40%;
+            background-color: lightgray;
+            text-decoration: none;
+            color: #282D2E;
+            font-size: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 900;
+            cursor: pointer;
+            border: 2px solid rebeccapurple;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .button:hover, input[type=submit]:hover, .item-add:hover {
+            background-color: mediumpurple;
+            opacity: 0.8;
+        }
+        .item-details, .login, .register{
+            padding: 30px;
+            display:block;
+            margin: auto;
+            width:84%
+        }
+        .login-header, .task-done-header, .register-header{
+            text-align: center;
+        }
+        .task-done-body{
+            text-align: center;
+            align-content: center;
+        }
+        a.login, a.register{
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 900;
+            color: #282D2E;
+            font-size: 15px;
+            width: 55px;
+            height: 20px;
+            padding: 10px;
+            background: lightgray;
+            text-align: center;
+            border: 2px solid rebeccapurple;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        a.login:hover, a.register:hover{
+            background-color: mediumpurple;
+            opacity: 0.8;
+        }
+        .register-button, .login-button{
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            cursor: pointer;
+        }
+        .register-body, .login-body{
+            text-align: center;
+            align-content: center;
+        }
+        label {
+            padding-top: 10px !important;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+</html>
